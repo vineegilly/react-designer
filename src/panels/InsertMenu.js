@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import classNames from 'classnames';
 import Radium from 'radium';
 import Icon from '../Icon';
 

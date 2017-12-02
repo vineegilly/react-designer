@@ -1,3 +1,3 @@
-export scale from './Scaler';
-export drag from './Dragger';
-export rotate from './Rotator';
+export { default as scale } from './Scaler';
+export { default as drag } from './Dragger';
+export { default as rotate } from './Rotator';

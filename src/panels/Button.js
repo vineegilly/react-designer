@@ -1,7 +1,5 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Radium from 'radium';
-import _ from 'lodash';
-import Icon from '../Icon';
 
 import styles from './styles';
 
@@ -10,10 +8,10 @@ const Button = ({onClick, ...props}) => {
     e.preventDefault();
     onClick(...args);
   }
-  return (
-    <a href="#" style={styles.button} onClick={_onClick}>
+  return ( // this used to be an <a/> not <button/>
+    <button href="#" style={styles.button} onClick={_onClick}>
       {props.children}
-    </a>
+    </button>
   );
 }
 
