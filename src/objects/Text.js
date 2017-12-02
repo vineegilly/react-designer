@@ -2,21 +2,19 @@ import React from 'react';
 import Icon from '../Icon';
 
 import Vector from './Vector';
-import WebFont from 'webfontloader';
 
 export default class Text extends Vector {
   static meta = {
     icon: <Icon icon={'text'} size={30} />,
     initial: {
-      text: "Hi! I'm a text object...",
+      text: "Hello",
       rotate: 0,
-      fontWeight: "bold",
+      fontWeight: "normal",
       fontStyle: "normal",
       textDecoration: "none",
       fill: "black",
-      fontSize: 12,
-      fontFamily: "Open Sans",
-      letterSpacing: 0
+      fontSize: 50,
+      fontFamily: "Helvetica"
     }
   };
 
@@ -29,8 +27,7 @@ export default class Text extends Vector {
       fontStyle: object.fontStyle,
       textDecoration: object.textDecoration,
       mixBlendMode: object.blendMode,
-      WebkitUserSelect: "none",
-      letterSpacing: object.letterSpacing
+      WebkitUserSelect: "none"
     };
   }
 
@@ -40,15 +37,10 @@ export default class Text extends Vector {
 
   render() {
     let object = this.props.object;
-    WebFont.load({
-      google: {
-        families: [object.fontFamily]
-      }
-    });
     return (
       <text style={this.getStyle()}
          {...this.getObjectAttributes()}
-         textAnchor="right"
+         textAnchor="middle"
          fontSize={object.fontSize}
          fontFamily={object.fontFamily}>
         {object.text}

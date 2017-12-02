@@ -8,15 +8,13 @@ class PanelList extends Component {
   render() {
     let {offset, objectComponent} = this.props;
     let style = {
-      left: (offset.width*3.779528) + offset.x,
+      left: offset.width + offset.x,
       top: offset.y + window.scrollY,
     };
-    // console.log(style, offset.width, offset.x, typeof(offset.width), typeof(offset.x), offset.width + offset.x)
-
     return (
-      <Portal className="propertyPanel" closeOnEsc closeOnOutsideClick isOpened={true}>
+      <Portal closeOnEsc closeOnOutsideClick isOpened={true}>
         <div style={[styles.propertyPanel, style]}>
-          {objectComponent.panels.map((Panel, i) => <Panel key={i} id={id} {...this.props} />)}
+          {objectComponent.panels.map((Panel, i) => <Panel key={i} {...this.props} />)}
         </div>
       </Portal>
     );

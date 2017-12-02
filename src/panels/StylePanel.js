@@ -33,13 +33,13 @@ export default class StylePanel extends Panel {
     let {object} = this.props;
     return (
       <PropertyGroup>
-          <Columns label="Fill" showIf={_.has(object, 'fill')}>
+          <Columns label="Fill">
             <Column>
               <ColorInput value={object.fill}
                           onChange={this.props.onChange.bind(this, 'fill')} />
             </Column>
           </Columns>
-          <Columns label="Stroke" showIf={_.has(object, 'stroke')}>
+          <Columns label="Stroke">
             <Column>
               <ColorInput value={object.stroke}
                           onChange={this.props.onChange.bind(this, 'stroke')} />
