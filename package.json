@@ -47,8 +47,7 @@
     "react-dropzone": "^4.2.3",
     "superagent": "*"
   },
-  "peerDependencies": {
-  },
+  "peerDependencies": {},
   "dependencies": {
     "babel-cli": "^6.5.1",
     "classnames": "^2.2.1",
