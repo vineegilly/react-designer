@@ -1,6 +1,7 @@
 export default {
   propertyPanel: {
-    position: "absolute",
+    // position: "absolute",
+    position: "fixed",
     width: 200,
     top: 0,
     left: 0,
@@ -94,5 +95,16 @@ export default {
     textDecoration: 'none',
     display: 'block',
     padding: '2px 0',
-  }
+  },
+  item: {
+    padding: '2px 6px',
+    cursor: 'default'
+  },
+
+  highlightedItem: {
+    color: 'white',
+    background: 'hsl(200, 50%, 50%)',
+    padding: '2px 6px',
+    cursor: 'default'
+  },
 };

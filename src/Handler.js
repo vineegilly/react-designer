@@ -46,6 +46,10 @@ class Handler extends Component {
     let {props} = this;
     let {boundingBox} = props;
 
+    // console.log("boundingBox => ", boundingBox)
+
+    // console.log("styles.handler => ", styles.handler)
+
     let handlerStyle = {
       ...styles.handler,
       ...boundingBox,
@@ -53,6 +57,8 @@ class Handler extends Component {
       top: boundingBox.top - 2,
       transform: `rotate(${boundingBox.rotate}deg)`
     };
+
+    // console.log("HANDLER STYLE => ", handlerStyle)
 
     return (
       <div className={'handler'}

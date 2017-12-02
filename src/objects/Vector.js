@@ -1,7 +1,7 @@
 import {Component} from 'react';
 
 import {SizePanel, TextPanel,
-        StylePanel, ArrangePanel} from '../panels';
+        StylePanel, ArrangePanel, ImagePanel} from '../panels';
 
 
 export default class Vector extends Component {
@@ -9,6 +9,7 @@ export default class Vector extends Component {
     SizePanel,
     TextPanel,
     StylePanel,
+    ImagePanel,
     ArrangePanel
   ];
 
@@ -20,6 +21,7 @@ export default class Vector extends Component {
   }
 
   getTransformMatrix({rotate, x, y, width, height}) {
+    console.log(rotate)
     if (rotate) {
       let centerX = width / 2 + x;
       let centerY = height / 2 + y;
