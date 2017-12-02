@@ -1,9 +1,6 @@
-import React, {Component} from 'react';
-import {modes} from '../constants';
-import Icon from '../Icon';
-import _ from 'lodash';
+import {Component} from 'react';
 
-import {SizePanel, TextPanel, 
+import {SizePanel, TextPanel,
         StylePanel, ArrangePanel} from '../panels';
 
 
@@ -35,7 +32,7 @@ export default class Vector extends Component {
     return {
       ...object,
       transform: this.getTransformMatrix(object),
-      ref: onRender, 
+      ref: onRender,
       ...rest
     };
   }

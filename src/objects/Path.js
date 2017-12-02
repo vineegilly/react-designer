@@ -1,7 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {modes} from '../constants';
 import Icon from '../Icon';
-import _ from 'lodash';
 
 import Vector from './Vector';
 import BezierEditor from '../editors/BezierEditor';
@@ -25,7 +24,7 @@ export default class Path extends Vector {
 
   buildPath(object) {
     let {path} = object;
-    
+
     let curves = path.map(({x1, y1, x2, y2, x, y}, i) => (
       `C ${x1} ${y1}, ${x2} ${y2}, ${x} ${y}`
     ));
