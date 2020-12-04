@@ -3,7 +3,8 @@ var webpack = require('webpack');
 
 module.exports = {
   resolve: {
-    extensions: ['.js', '.jsx', '.js', '.css'],
+    extensions: ['', '.js', '.jsx', '.js', '.css'],
+    packageMains: ['webpack', 'browser', 'web', 'browserify', ['jam', 'main'], 'main', 'index']
   },
   devtool: 'eval',
   entry: [
@@ -36,7 +37,7 @@ module.exports = {
         ]
       }, {
         test: /\.js$/,
-        loaders: ['react-hot-loader/webpack', 'babel-loader?presets[]=react'],
+        loaders: ['react-hot', 'babel'],
         include: [path.join(__dirname, 'src'),
           path.join(__dirname, 'example')]
       }]

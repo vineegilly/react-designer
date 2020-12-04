@@ -13,15 +13,15 @@ export default class SizePanel extends Panel {
     return (
       <PropertyGroup object={object}>
         {_.has(object, 'width', 'height') && <Columns label="Size">
-          <Column showIf={_.has(object, 'width')}
+          <Column showIf={_.has(object, 'width')} 
                   label="width" value={object.width}
                   onChange={this.props.onChange.bind(this, 'width')} />
-          <Column showIf={_.has(object, 'height')} label="height"
+          <Column showIf={_.has(object, 'height')} label="height" 
                   value={object.height}
                   onChange={this.props.onChange.bind(this, 'height')} />
         </Columns>}
         <Columns label="Position">
-          <Column showIf={_.has(object, 'x')}
+          <Column showIf={_.has(object, 'x')} 
                   label="top" value={object.x}
                   onChange={this.props.onChange.bind(this, 'x')} />
           <Column showIf={_.has(object, 'y')} label="top" value={object.y}

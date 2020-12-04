@@ -1,5 +1,6 @@
 import React from 'react';
 import Radium from 'radium';
+// import _ from 'lodash';
 import Icon from '../Icon';
 
 const SwitchState = (props) => {

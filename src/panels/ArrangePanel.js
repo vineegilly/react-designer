@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 
 import Icon from '../Icon';
 import Panel from './Panel';
@@ -9,6 +10,7 @@ import Column from './Column';
 
 export default class ArrangePanel extends Panel {
   render() {
+    let {object} = this.props;
     return (
       <PropertyGroup>
           <Columns label="Arrange">

@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from '../Icon';
+// import _ from 'lodash';
 
 import Vector from './Vector';
 
@@ -17,7 +18,7 @@ export default class Circle extends Vector {
   };
 
   render() {
-    let object = this.props.object;
+    let {object} = this.props;
     return (
       <ellipse style={this.getStyle()}
          {...this.getObjectAttributes()}

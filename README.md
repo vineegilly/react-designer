@@ -26,7 +26,7 @@ Examples and demonstration:
 
 
 ## Usage
-All the entities are pure react components in react-designer except action strategies. I have tried to explain that. I'm starting with components.
+All the entities are pure react components except action strategies in react-designer. I have tried to explain that. I'm starting with components.
 
 ### Component: Designer
 
@@ -251,70 +251,6 @@ export default ({object, startPoint, mouse}) => {
   };
 };
 ```
-
-
-### Action strategies
-
-The actions of `rotate`, `scale`, `drag` are pure functions. You can change this behaviours by passing your strategy. The action functions calling with the following object bundle.
-
-    {
-      object, // the current object
-      mouse, // mouse coordinates bundle. it have x and y attribtues
-      startPoint, // starting points of mouse and object bundles.
-      objectIndex, // the index of the object in the documen, 
-      objectRefs, // DOM references of objects in the document
-    } 
-
-Here are default action strategies:
-
-#### Dragger
-Moves the object to mouse bundle by the center of object.
-
-    // dragger.js
-    export default ({object, startPoint, mouse}) => {
-      return {
-        ...object,
-        x: mouse.x - (startPoint.clientX - startPoint.objectX),
-        y: mouse.y - (startPoint.clientY - startPoint.objectY)
-      };
-    };
-
-#### Scaler
-Scales the object by the difference with startPoint and current mouse bundle. If the difference lower than zero, changes the position of object.
-
-    // scale.js
-    export default ({object, startPoint, mouse}) => {
-      let {objectX, objectY, clientX, clientY} = startPoint;
-      let width = startPoint.width + mouse.x - clientX;
-      let height = startPoint.height + mouse.y - clientY;
-
-      return {
-        ...object,
-        x: width > 0 ? objectX: objectX + width,
-        y: height > 0 ? objectY: objectY + height,
-        width: Math.abs(width),
-        height: Math.abs(height)
-      };
-    };
-
-#### Rotator
-Changes the rotation as degree of object. This action may needs some improvement, I'm calculating with a base value (45 degree) because of the rotator anchor is on the upper right corner of object.
-
-    // rotate.js
-    export default ({object, startPoint, mouse}) => {
-      let angle = Math.atan2(
-        startPoint.objectX + (object.width || 0) / 2 - mouse.x, 
-        startPoint.objectY + (object.height || 0) / 2 - mouse.y
-      );
-
-      let asDegree = angle * 180 / Math.PI;
-      let rotation = (asDegree + 45) * -1;
-
-      return {
-        ...object,
-        rotate: rotation
-      };
-    };
 
 
 ### To-do

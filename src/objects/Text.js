@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from '../Icon';
+import _ from 'lodash';
 
 import Vector from './Vector';
 
@@ -19,7 +20,7 @@ export default class Text extends Vector {
   };
 
   getStyle() {
-    let object = this.props.object;
+    let {object} = this.props;
     return {
       ...super.getStyle(),
       dominantBaseline: "central",
@@ -36,7 +37,7 @@ export default class Text extends Vector {
   }
 
   render() {
-    let object = this.props.object;
+    let {object, index} = this.props;
     return (
       <text style={this.getStyle()}
          {...this.getObjectAttributes()}
