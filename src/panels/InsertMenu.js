@@ -37,13 +37,8 @@ const styles = {
     position: 'absolute',
     marginTop: 0,
     marginLeft: -40,
-    height: 40,
+    height: 'auto',
     width: 40,
-    overflow: 'hidden',
-    ':hover': {
-      background: '#eeeff5',
-      height: 'auto',
-    }
   },
   toolBox: {
     margin: 0,
