@@ -1,6 +1,6 @@
 {
   "name": "react-designer-svgedit",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "Easy to configure, lightweight, editable vector graphics in your react components.",
   "main": "./build/index.js",
   "scripts": {
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fatiherikli/react-designer"
+    "url": "https://github.com/abhi-govula/react-designer"
   },
   "keywords": [
     "react",
     "reactjs"
   ],
-  "author": "Fatih Erikli <fatiherikli@gmail.com> (http://fatiherikli.com)",
+  "author": "F",
   "license": "MIT",
-  "homepage": "https://github.com/fatiherikli/react-designer",
+  "homepage": "https://github.com/abhi-govula/react-designer",
   "devDependencies": {
     "babel-core": "^6.0.20",
     "babel-eslint": "^8.0.3",

@@ -8,7 +8,6 @@ Easy to configure, lightweight, editable vector graphics in your react component
 - Custom object types and custom panels
 
 
-![bezier editor](http://i.imgur.com/cqTleWB.gif)
 
 ## Keymap
 
