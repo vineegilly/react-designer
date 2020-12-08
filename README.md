@@ -1,17 +1,12 @@
 React-designer
 ==============
 
-[![Join the chat at https://gitter.im/fatiherikli/react-designer](https://badges.gitter.im/fatiherikli/react-designer.svg)](https://gitter.im/fatiherikli/react-designer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 Easy to configure, lightweight, editable vector graphics in your react components.
 
 - Supports polygon and shape designing (with bezier curves)
 - Implemented default scale, rotate, drag, and arrange actions
 - Custom object types and custom panels
 
-
-Examples and demonstration: 
-<http://fatiherikli.github.io/react-designer>
 
 ![bezier editor](http://i.imgur.com/cqTleWB.gif)
 
@@ -75,6 +70,7 @@ The `Designer` component expects the following parameters:
 | rotator          | rotate({object, mouse})        | The rotating strategy of objects
 | scale            | scale({object, mouse})         | The scaling strategy of objects
 | drag             | drag({object, mouse})          | The dragging strategy of objects
+| backgroundImage  | null                           | The background image of the Designer canvas 
 
 
 Object types are pure react components which are derived from `Vector`.
@@ -340,7 +336,3 @@ Here is a todo list that in my mind. You could extend this list.
 
   - `Designer` component exported as default now.
   - Added `insertMenu` prop to `Designer` component.
-
-### Contributors (You can add your name here in your pull-request)
-
-- Fatih Erikli <fatiherikli@gmail.com>
