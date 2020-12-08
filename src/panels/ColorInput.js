@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Radium from 'radium';
 import ColorPicker from 'react-color';
-import _ from 'lodash';
 
 import styles from './styles';
 
@@ -36,7 +35,7 @@ class ColorInput extends Component {
   render() {
     let {show, x, y} = this.state;
     let {value} = this.props;
-    
+
     let position = {
       position: "fixed",
       left: x + 3,
@@ -52,11 +51,11 @@ class ColorInput extends Component {
           onChange={this.handleChange.bind(this)}
           onClose={this.toggleVisibility.bind(this)}
           type="chrome" />
-        <a href="#" 
+        <button href="#"
          style={styles.colorInput}
          onClick={this.toggleVisibility.bind(this)}>
           <span style={[styles.color, {backgroundColor: value}]} />
-         </a>
+         </button>
       </div>
     );
   }

@@ -6,7 +6,8 @@ export default {
     left: 0,
     padding: '0 5px 6px 5px',
     fontFamily: '"Lucida Grande", sans-serif',
-    fontSize: 11
+    fontSize: 11,
+    zIndex: 1000
   },
   propertyGroup: {
     backgroundColor: '#f1f1f1',

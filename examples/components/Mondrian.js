@@ -114,6 +114,7 @@ export default class extends Component {
       <Designer
         width={350} height={400}
         objects={this.state.objects}
+        backgroundImage="http://placehold.it/350x400"
         onUpdate={this.handleUpdate.bind(this)}/>
     );
   }

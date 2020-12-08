@@ -10,11 +10,6 @@ class InsertMenu extends Component {
 
     return (
       <div style={styles.insertMenu}>
-        <div style={styles.mainIcon}>
-        {currentTool
-          ? tools[currentTool].meta.icon
-          : <Icon icon={"add"} size={30} />}
-        </div>
         <ul style={styles.toolBox}>
           {keys.map((type, i) => (
             <li style={[
@@ -23,7 +18,7 @@ class InsertMenu extends Component {
               ]}
                 onMouseDown={this.props.onSelect.bind(this, type)}
                 key={i}>
-              {tools[type].meta.icon}
+              {tools[type].meta.icon} {tools[type].name}
             </li>
           ))}
         </ul>
@@ -34,11 +29,13 @@ class InsertMenu extends Component {
 
 const styles = {
   insertMenu: {
+    font: 'sans-serif',
     position: 'absolute',
     marginTop: 0,
-    marginLeft: -40,
+    marginLeft: -90,
     height: 'auto',
-    width: 40,
+    width: 90,
+    
   },
   toolBox: {
     margin: 0,

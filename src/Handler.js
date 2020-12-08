@@ -8,7 +8,7 @@ function ScaleAnchor(props) {
     marginLeft: boundingBox.width - 4
   };
   return (
-    <div style={[styles.anchor, 
+    <div style={[styles.anchor,
                  styles.scaleAnchor,
                  style]}
          className={'resize-anchor'}
@@ -24,7 +24,7 @@ function RotateAnchor(props) {
   };
   return (
     <div style={[styles.anchor,
-                 styles.rotateAnchor, 
+                 styles.rotateAnchor,
                  style]}
          className={'rotate-anchor'}
          onMouseDown={props.onMouseDown} />
@@ -39,7 +39,7 @@ class Handler extends Component {
 
     if (event.target.classList.contains('handler')) {
       this.props.onDrag(event);
-    }   
+    }
   }
 
   render() {
@@ -55,15 +55,15 @@ class Handler extends Component {
     };
 
     return (
-      <div className={'handler'} 
+      <div className={'handler'}
         style={handlerStyle}
         onMouseLeave={props.onMouseLeave}
         onDoubleClick={props.onDoubleClick}
         onMouseDown={this.onMouseDown.bind(this)}>
           {props.canRotate &&
-            <RotateAnchor onMouseDown={props.onRotate} 
+            <RotateAnchor onMouseDown={props.onRotate}
                           boundingBox={boundingBox} />}
-          {props.canResize && 
+          {props.canResize &&
             <ScaleAnchor onMouseDown={props.onResize}
                          boundingBox={boundingBox} />}
       </div>
@@ -78,7 +78,7 @@ const styles = {
     'zIndex': 999999
   },
   anchor: {
-    'width': 10, 
+    'width': 10,
     'height': 10,
     ':hover': {
       'borderColor': 'gray'

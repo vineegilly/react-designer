@@ -1,6 +1,5 @@
 import React from 'react';
 import Icon from '../Icon';
-// import _ from 'lodash';
 
 import Vector from './Vector';
 
@@ -19,7 +18,7 @@ export default class Rect extends Vector {
   };
 
   render() {
-    let {object } = this.props;
+    let object = this.props.object;
     return (
       <rect style={this.getStyle()}
          {...this.getObjectAttributes()}

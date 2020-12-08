@@ -3,8 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
   resolve: {
-    extensions: ['', '.js', '.jsx', '.js', '.css'],
-    packageMains: ['webpack', 'browser', 'web', 'browserify', ['jam', 'main'], 'main', 'index']
+    extensions: ['.js', '.jsx', '.js', '.css'],
   },
   devtool: 'eval',
   entry: [
@@ -13,9 +12,9 @@ module.exports = {
     './examples'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/dist/'
+    path: path.join(__dirname, 'build'),
+    filename: 'index.js',
+    publicPath: '/build/'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
@@ -37,7 +36,7 @@ module.exports = {
         ]
       }, {
         test: /\.js$/,
-        loaders: ['react-hot', 'babel'],
+        loaders: ['react-hot-loader/webpack', 'babel-loader?presets[]=react'],
         include: [path.join(__dirname, 'src'),
           path.join(__dirname, 'example')]
       }]

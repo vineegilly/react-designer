@@ -1,13 +1,5 @@
-import TextPanel from './TextPanel';
-import ArrangePanel from './ArrangePanel';
-import StylePanel from './StylePanel';
-import SizePanel from './SizePanel';
-import InsertMenu from './InsertMenu';
-
-export {
-    TextPanel,
-    ArrangePanel,
-    StylePanel,
-    SizePanel,
-    InsertMenu
-}
+export { default as TextPanel } from './TextPanel';
+export { default as ArrangePanel } from './ArrangePanel';
+export { default as StylePanel } from './StylePanel';
+export { default as SizePanel } from './SizePanel';
+export { default as InsertMenu } from './InsertMenu';
