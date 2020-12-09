@@ -1,12 +1,12 @@
 export default {
   propertyPanel: {
     position: "absolute",
-    width: 200,
+    width: 225,
     top: 0,
     left: 0,
     padding: '0 5px 6px 5px',
-    fontFamily: '"Lucida Grande", sans-serif',
-    fontSize: 11,
+    fontFamily: '"inherit',
+    fontSize: 'inherit',
     zIndex: 1000
   },
   propertyGroup: {
