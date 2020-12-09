@@ -1,24 +1,16 @@
 import React, {Component} from 'react';
-import Radium from 'radium';
-import ColorPicker from 'react-color';
+import { ChromePicker } from 'react-color';
 
 import styles from './styles';
 
 class ColorInput extends Component {
   state = {
-    show: false,
-    x: 0,
-    y: 0
+    show: false
   };
 
-  toggleVisibility(event) {
+  toggleVisibility = (event) => {
     if (event.preventDefault) {
       event.preventDefault();
-      let rect = event.target.getBoundingClientRect();
-      this.setState({
-        x: rect.left,
-        y: rect.top
-      });
     }
 
     let {show} = this.state;
@@ -27,38 +19,42 @@ class ColorInput extends Component {
     })
   }
 
-  handleChange(color) {
+  handleChange = (color) => {
     let {r, g, b, a} = color.rgb;
     this.props.onChange(`rgba(${r}, ${g}, ${b}, ${a})`);
   }
 
-  render() {
-    let {show, x, y} = this.state;
-    let {value} = this.props;
+  handleClose = (event) => {
+    if (event.preventDefault) {
+      event.preventDefault();
+    }
 
-    let position = {
-      position: "fixed",
-      left: x + 3,
-      top: y - 2
-    };
+    this.setState({
+      show: false
+    })
+  }
+
+  render() {
+    let {show} = this.state;
+    let {value} = this.props;
 
     return (
       <div>
-        <ColorPicker
-          color={value}
-          display={show}
-          positionCSS={position}
-          onChange={this.handleChange.bind(this)}
-          onClose={this.toggleVisibility.bind(this)}
-          type="chrome" />
-        <button href="#"
+        <a href="#"
          style={styles.colorInput}
          onClick={this.toggleVisibility.bind(this)}>
-          <span style={[styles.color, {backgroundColor: value}]} />
-         </button>
+          <span style={{...styles.color, backgroundColor: value}} />
+         </a>
+         {show && <div style={styles.colorPopover}>
+           <div style={styles.colorCover} onClick={this.handleClose} />
+           <ChromePicker
+             color={value}
+             onChange={this.handleChange}
+             />
+         </div>}
       </div>
     );
   }
 }
 
-export default Radium(ColorInput);
+export default ColorInput;
