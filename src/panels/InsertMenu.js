@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
-import Icon from '../Icon';
 
 class InsertMenu extends Component {
 
@@ -18,7 +17,7 @@ class InsertMenu extends Component {
               ]}
                 onMouseDown={this.props.onSelect.bind(this, type)}
                 key={i}>
-              {tools[type].meta.icon} {tools[type].name}
+              {tools[type].meta.icon} <br />{type}
             </li>
           ))}
         </ul>
@@ -29,13 +28,14 @@ class InsertMenu extends Component {
 
 const styles = {
   insertMenu: {
-    font: 'sans-serif',
+    font: "inherit",
     position: 'absolute',
     marginTop: 0,
     marginLeft: -90,
     height: 'auto',
     width: 90,
-    
+    cursor: "pointer",
+    textTransform: "capitalize"
   },
   toolBox: {
     margin: 0,
