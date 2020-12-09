@@ -33,6 +33,10 @@ export default class StylePanel extends Panel {
     let {object} = this.props;
     return (
       <PropertyGroup>
+          <Columns label="Name">
+            <Column label="Object Name" value={object.name || ""}
+                  onChange={this.props.onChange.bind(this, 'name')} />
+          </Columns>
           <Columns label="Fill">
             <Column>
               <ColorInput value={object.fill}
