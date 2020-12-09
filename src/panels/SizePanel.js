@@ -12,6 +12,10 @@ export default class SizePanel extends Panel {
     let {object} = this.props;
     return (
       <PropertyGroup object={object}>
+        <Columns label="Name">
+            <Column label="Object Name" value={object.name || ""} inputStyle={{width: "105px"}}
+                  onChange={this.props.onChange.bind(this, 'name')} />
+          </Columns>
         {_.has(object, 'width', 'height') && <Columns label="Size">
           <Column showIf={_.has(object, 'width')}
                   label="width" value={object.width}

@@ -11,7 +11,7 @@ const Column = ({showIf=true, ...props}) => {
   return (
     <div style={[styles.column, props.style]}>
       {props.children ||
-        <input style={[styles.input, styles.integerInput]} value={props.value}
+        <input style={[styles.input, styles.integerInput, props.inputStyle]} value={props.value}
                onChange={(e) => props.onChange(e.target.value)} />
       }
       {props.label &&
