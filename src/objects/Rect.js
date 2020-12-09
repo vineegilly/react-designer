@@ -9,8 +9,9 @@ export default class Rect extends Vector {
     initial: {
       width: 5,
       height: 5,
-      strokeWidth: 0,
-      fill: "blue",
+      fill: "transparent",
+      strokeWidth: 1,
+      stroke: "rgba(0,0,0,1)",
       radius: 0,
       blendMode: "normal",
       rotate: 0

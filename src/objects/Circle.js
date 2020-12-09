@@ -10,8 +10,9 @@ export default class Circle extends Vector {
       width: 5,
       height: 5,
       rotate: 0,
-      fill: "yellow",
-      strokeWidth: 0,
+      fill: "transparent",
+      strokeWidth: 1,
+      stroke: "rgba(0,0,0,1)",
       blendMode: "normal"
     }
   };
