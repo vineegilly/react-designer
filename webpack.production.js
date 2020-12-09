@@ -11,9 +11,9 @@ module.exports = {
     './examples'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/static/'
+    path: path.join(__dirname, 'build'),
+    filename: 'index.js',
+    publicPath: '/build/'
   },
   plugins: [],
   module: {
