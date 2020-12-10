@@ -10,17 +10,19 @@ export default {
     zIndex: 1000
   },
   propertyGroup: {
-    backgroundColor: '#f1f1f1',
+    backgroundColor: '#fff',
     overflow: 'hidden',
     paddingBottom: 12,
     paddingTop: 2,
     paddingLeft: 10,
     border: '0px solid #d3d3d3',
-    marginBottom: 5
+    marginBottom: 5,
+    border: '1px solid #000',
+    borderRadius: 5
   },
   inputHelper: {
     fontSize: 9,
-    color: '#d2d2d2',
+    color: 'grey',
     paddingTop: 2,
     paddingLeft: 5
   },
@@ -33,7 +35,7 @@ export default {
     float: 'left',
     width: 60,
     padding: 3,
-    color: '#b8b8b8'
+    color: '#000'
   },
   columns: {
     overflow: 'hidden',
@@ -44,10 +46,10 @@ export default {
     marginRight: 5
   },
   input: {
-    background: '#e1e1e1',
-    borderWidth: 0,
+    background: '#fff',
+    borderWidth: 1,
     padding: '3px 5px',
-    color: 'gray',
+    color: '#000',
     borderRadius: 3,
   },
   select: {
