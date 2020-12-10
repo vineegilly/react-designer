@@ -1,6 +1,6 @@
 {
   "name": "react-designer-svgedit",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "Easy to configure, lightweight, editable vector graphics in your react components.",
   "main": "./build/index.js",
   "scripts": {
