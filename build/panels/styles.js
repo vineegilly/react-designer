@@ -3,6 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _propertyGroup;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 exports.default = {
   propertyPanel: {
     position: "absolute",
@@ -14,18 +19,18 @@ exports.default = {
     fontSize: 'inherit',
     zIndex: 1000
   },
-  propertyGroup: {
-    backgroundColor: '#f1f1f1',
+  propertyGroup: (_propertyGroup = {
+    backgroundColor: '#fff',
     overflow: 'hidden',
     paddingBottom: 12,
     paddingTop: 2,
     paddingLeft: 10,
     border: '0px solid #d3d3d3',
     marginBottom: 5
-  },
+  }, _defineProperty(_propertyGroup, 'border', '1px solid #000'), _defineProperty(_propertyGroup, 'borderRadius', 5), _propertyGroup),
   inputHelper: {
     fontSize: 9,
-    color: '#d2d2d2',
+    color: 'grey',
     paddingTop: 2,
     paddingLeft: 5
   },
@@ -38,7 +43,7 @@ exports.default = {
     float: 'left',
     width: 60,
     padding: 3,
-    color: '#b8b8b8'
+    color: '#000'
   },
   columns: {
     overflow: 'hidden',
@@ -49,10 +54,10 @@ exports.default = {
     marginRight: 5
   },
   input: {
-    background: '#e1e1e1',
-    borderWidth: 0,
+    background: '#fff',
+    borderWidth: 1,
     padding: '3px 5px',
-    color: 'gray',
+    color: '#000',
     borderRadius: 3
   },
   select: {
