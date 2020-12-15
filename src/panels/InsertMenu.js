@@ -11,7 +11,7 @@ class InsertMenu extends Component {
       <div style={styles.insertMenu}>
         <ul style={styles.toolBox}>
           {keys.map((type, i) => (
-            <li className="insertmenu" style={[
+            <li className={currentTool === type ? "insertmenu insertmenuactive" : "insertmenu"} style={[
               styles.toolBoxItem,
               currentTool === type && styles.currentToolboxItem
               ]}

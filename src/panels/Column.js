@@ -15,7 +15,7 @@ const Column = ({showIf=true, ...props}) => {
                onChange={(e) => props.onChange(e.target.value)} />
       }
       {props.label &&
-        <div style={styles.inputHelper}>{props.label}</div>}
+        <div className="helpertext" style={styles.inputHelper}>{props.label}</div>}
     </div>
   );
 };
