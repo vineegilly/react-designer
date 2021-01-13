@@ -51,7 +51,7 @@ var InsertMenu = function (_Component) {
           keys.map(function (type, i) {
             return _react2.default.createElement(
               'li',
-              { className: 'insertmenu', style: [styles.toolBoxItem, currentTool === type && styles.currentToolboxItem],
+              { className: currentTool === type ? "insertmenu insertmenuactive" : "insertmenu", style: [styles.toolBoxItem, currentTool === type && styles.currentToolboxItem],
                 onMouseDown: _this2.props.onSelect.bind(_this2, type),
                 key: i },
               tools[type].meta.icon,

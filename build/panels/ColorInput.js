@@ -86,7 +86,7 @@ var ColorInput = function (_Component) {
           { href: '#',
             style: _styles2.default.colorInput,
             onClick: this.toggleVisibility.bind(this) },
-          _react2.default.createElement('span', { style: _extends({}, _styles2.default.color, { backgroundColor: value }) })
+          _react2.default.createElement('span', { className: 'colorinput', style: _extends({}, _styles2.default.color, { backgroundColor: value }) })
         ),
         show && _react2.default.createElement(
           'div',

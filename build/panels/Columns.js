@@ -33,7 +33,7 @@ var Columns = function Columns(_ref) {
     { style: _styles2.default.columns },
     _react2.default.createElement(
       'div',
-      { style: _styles2.default.panelTitle },
+      { className: 'formlabel', style: _styles2.default.panelTitle },
       props.label
     ),
     props.children

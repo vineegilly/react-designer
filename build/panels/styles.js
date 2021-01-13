@@ -95,7 +95,8 @@ exports.default = {
     width: 14,
     height: 14,
     display: 'inline-block',
-    borderRadius: '50%'
+    borderRadius: '50%',
+    border: '2px solid grey'
   },
   empty: {
     display: 'none'

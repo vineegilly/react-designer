@@ -38,7 +38,7 @@ var Column = function Column(_ref) {
       } }),
     props.label && _react2.default.createElement(
       'div',
-      { style: _styles2.default.inputHelper },
+      { className: 'helpertext', style: _styles2.default.inputHelper },
       props.label
     )
   );
