@@ -43,7 +43,7 @@ class ColorInput extends Component {
         <a href="#"
          style={styles.colorInput}
          onClick={this.toggleVisibility.bind(this)}>
-          <span style={{...styles.color, backgroundColor: value}} />
+          <span className="colorinput" style={{...styles.color, backgroundColor: value}} />
          </a>
          {show && <div style={styles.colorPopover}>
            <div style={styles.colorCover} onClick={this.handleClose} />
