@@ -163,7 +163,6 @@ class Designer extends Component {
 
   updateObject(objectIndex, changes, updatePath) {
     let {objects, onUpdate} = this.props;
-
     onUpdate(objects.map((object, index) => {
       if (index === objectIndex) {
         let newObject = {
@@ -312,7 +311,20 @@ class Designer extends Component {
   }
 
   stopDrag() {
-    let {mode} = this.state;
+    let {mode, currentObjectIndex} = this.state;
+
+    // Disables shape drag out of bounds 
+    if(mode === modes.DRAG) {
+      let {objects} = this.props;
+      let object = objects[currentObjectIndex];
+      const offset = this.getOffset();
+      if(object.x < 0) { object.x = 0 };
+      if(object.y < 0) { object.y = 0 };
+      if(object.x+object.width > offset.width) { object.x = offset.width - object.width }
+      if(object.y+object.height > offset.height) { object.y = offset.height - object.height }
+      this.updateObject(currentObjectIndex, object);
+      this.updateHandler(currentObjectIndex, object);
+    }
 
     if (_.includes([modes.DRAG,
                     modes.ROTATE,
