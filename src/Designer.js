@@ -565,6 +565,7 @@ class Designer extends Component {
               object={objectWithInitial}
               onArrange={this.handleArrange.bind(this)}
               onChange={this.handleObjectChange.bind(this)}
+              onDelete={this.removeCurrent.bind(this)}
               objectComponent={objectComponent} />
           )}
         </div>
