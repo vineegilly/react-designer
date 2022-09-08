@@ -33,6 +33,7 @@ class SVGRenderer extends Component {
       }: getBackgroundImage(this.props.backgroundImage), 
       {
         ...svgStyle,
+        border:'1px solid black',
         marginTop: canvasOffsetY,
         marginLeft: canvasOffsetX
       }

@@ -111,14 +111,39 @@ export default class extends Component {
     console.log(objects)
     this.setState({objects});
   }
+  
+  handleUpdate1(objects) {
+    console.log(objects)
+    this.setState({objects});
+  }
 
-  render() {
+   onObjectSelect(selObj) {
+    console.log('selObj',selObj);
+  }
+
+    render() {
     return (
+      <div>
       <Designer
         width={350} height={400}
         objects={this.state.objects}
         backgroundImage="http://placehold.it/350x400"
-        onUpdate={this.handleUpdate.bind(this)}/>
+        onUpdate={this.handleUpdate.bind(this)}
+        isPreview={false}
+        />
+
+
+      <Designer
+        width={350} height={400}
+        objects={this.state.objects}
+        backgroundImage="http://placehold.it/350x400"
+        onUpdate={this.handleUpdate1.bind(this)}
+        onObjectSelect={this.onObjectSelect.bind(this)}
+        isPreview={true}
+        />
+
+
+        </div>
     );
   }
 }

@@ -1,6 +1,6 @@
 {
-  "name": "react-designer-svgedit",
-  "version": "1.0.27",
+  "name": "react-object-canvas",
+  "version": "1.0.50",
   "description": "Easy to configure, lightweight, editable vector graphics in your react components.",
   "main": "./build/index.js",
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/abhi-govula/react-designer"
+    "url": "git+https://github.com/vineegilly/react-designer.git"
   },
   "keywords": [
     "react",
@@ -20,7 +20,7 @@
   ],
   "author": "F",
   "license": "MIT",
-  "homepage": "https://github.com/abhi-govula/react-designer",
+  "homepage": "https://github.com/vineegilly/react-designer",
   "devDependencies": {
     "babel-core": "^6.0.20",
     "babel-eslint": "^8.0.3",
@@ -53,9 +53,15 @@
     "classnames": "^2.2.1",
     "lodash": "^4.17.4",
     "radium": "^0.19.6",
-    "react": "^16.2.0",
+    "react": "^17.0.2",
     "react-color": "^2.13.8",
     "react-hotkeys": "^0.10.0",
     "react-portal": "^4.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/vineegilly/react-designer/issues"
+  },
+  "directories": {
+    "example": "examples"
   }
 }
