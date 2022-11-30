@@ -542,14 +542,17 @@ class Designer extends Component {
              onClick={this.props.isPreview?this.onItemClick.bind(this):()=>{}}
             >
 
+             
+
           {isEditMode && ObjectEditor && (
+           
              <ObjectEditor object={currentObject}
                  offset={this.getOffset()}
                  onUpdate={(object) =>
                     this.updateObject(selectedObjectIndex, object)}
                  onClose={() => this.setState({mode: modes.FREE})}
                  width={width}
-                 height={height} />)}
+                 height={height} /> )}
 
           {showHandler && (
             <Handler
@@ -559,6 +562,7 @@ class Designer extends Component {
               canRotate={_(currentObject).has('rotate')}
               onMouseLeave={this.hideHandler.bind(this)}
               onDoubleClick={this.showEditor.bind(this)}
+              tempObj = {{...this.state,objects}}
               isPreview = {this.props.isPreview} 
               onClick={this.startDrag.bind(this, modes.FREE)}
               onDrag={this.startDrag.bind(this, modes.DRAG)}
@@ -582,7 +586,7 @@ class Designer extends Component {
               onDelete={this.removeCurrent.bind(this)}
               objectComponent={objectComponent} />
           )}
-        </div>
+           </div>
       </HotKeys>
     );
   }

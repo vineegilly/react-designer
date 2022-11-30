@@ -1,6 +1,6 @@
 {
-  "name": "react-object-canvas",
-  "version": "1.0.50",
+  "name": "react-designer-1",
+  "version": "1.0.18",
   "description": "Easy to configure, lightweight, editable vector graphics in your react components.",
   "main": "./build/index.js",
   "scripts": {
@@ -40,8 +40,8 @@
     "url-loader": "^0.6.2",
     "webpack": "^3.9.1",
     "webpack-dev-server": "^2.9.5",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "webfontloader": "^1.6.24",
     "react-autocomplete": "1.7.2",
     "react-dropzone": "^4.2.3",
@@ -50,6 +50,7 @@
   "peerDependencies": {},
   "dependencies": {
     "babel-cli": "^6.5.1",
+    "bootstrap": "^5.2.3",
     "classnames": "^2.2.1",
     "lodash": "^4.17.4",
     "radium": "^0.19.6",

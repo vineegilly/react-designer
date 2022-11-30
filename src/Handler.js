@@ -49,7 +49,7 @@ class Handler extends Component {
     let handlerStyle = {
       ...styles.handler,
       ...boundingBox,
-      left: boundingBox.left - 2,
+      left: boundingBox.left - 2 + 27,
       top: boundingBox.top - 2,
       transform: `rotate(${boundingBox.rotate}deg)`
     };
@@ -76,7 +76,7 @@ const styles = {
   handler: {
     'position': 'absolute',
     'border': '2px solid #dedede',
-    'zIndex': 999999
+    'zIndex': 1
   },
   anchor: {
     'width': 10,

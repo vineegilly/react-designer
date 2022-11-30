@@ -11,11 +11,11 @@ class PanelList extends Component {
       left: offset.width + offset.x,
       top: offset.y + window.scrollY,
     };
+    let nodeContainer = document && document.getElementsByClassName('oc-panel-placeholer')[0]
     return (
-      <Portal closeOnEsc closeOnOutsideClick isOpened={true}>
-        <div style={[styles.propertyPanel, style]}>
-          {objectComponent.panels.map((Panel, i) => <Panel key={i} {...this.props} />)}
-          <div className="additionalinfo"></div>
+      <Portal closeOnEsc closeOnOutsideClick isOpened={true} node={nodeContainer}>
+        <div style={[styles.propertyPanel, style]} className='row'>
+          {objectComponent.panels.map((Panel, i) => <div className={i==2?'col-12':'col-6'}><Panel key={i} {...this.props} /></div>)}
         </div>
       </Portal>
     );

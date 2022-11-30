@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Designer from '../../src/Designer';
+import Preview from '../../src/Preview';
 
 export default class extends Component {
   state = {
@@ -120,6 +121,9 @@ export default class extends Component {
    onObjectSelect(selObj) {
     console.log('selObj',selObj);
   }
+   clickHandler(data){ 
+    console.log(data);
+   }
 
     render() {
     return (
@@ -133,8 +137,10 @@ export default class extends Component {
         />
 
 
-      <Designer
+      <Preview
         width={350} height={400}
+        background={"#fffff"}
+        clickHandler={this.clickHandler.bind(this)}
         objects={this.state.objects}
         backgroundImage="http://placehold.it/350x400"
         onUpdate={this.handleUpdate1.bind(this)}

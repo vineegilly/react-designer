@@ -45,18 +45,36 @@ export default class Path extends Vector {
   }
 
   getTransformMatrix({rotate, x, y, moveX, moveY}) {
-    return `
+    if (rotate) {
+      const groupElement = document.getElementsByClassName(this.props.className)[0];
+      const bboxGroup = groupElement && groupElement.getBBox();
+      let newX =bboxGroup.x + (bboxGroup.width /2)
+      let newY =bboxGroup.y + (bboxGroup.height /2)
+      return `
       translate(${x - moveX} ${y - moveY})
-      rotate(${rotate} ${x} ${y})
+      rotate(${rotate} ${newX} ${newY})
     `;
   }
+  else{
+    return `
+    translate(${x - moveX} ${y - moveY})
+    rotate(${0} ${x} ${y})
+  `;
+}
+  
+
+ }
+  
 
   render() {
     let {object} = this.props;
+  
     let fill = (object.closed ? object.fill
                               : "transparent");
     return (
       <path style={this.getStyle(object)}
+      aria-label={`path-${this.props.index}`}
+      tabIndex={`${300+ this.props.index}`}
          {...this.getObjectAttributes()}
          d={this.buildPath(object)}
          fill={fill} />

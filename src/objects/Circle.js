@@ -21,6 +21,8 @@ export default class Circle extends Vector {
     let object = this.props.object;
     return (
       <ellipse style={this.getStyle()}
+        aria-label={`circle-${this.props.index}`}
+        tabIndex={`${200+ this.props.index}`}
          {...this.getObjectAttributes()}
          rx={object.width / 2}
          ry={object.height / 2}

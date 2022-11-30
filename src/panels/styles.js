@@ -1,13 +1,13 @@
 export default {
   propertyPanel: {
     position: "absolute",
-    width: 225,
+    // width: 'auto',
     top: 0,
     left: 0,
     padding: '0 5px 6px 5px',
     fontFamily: '"inherit',
     fontSize: 'inherit',
-    zIndex: 1000
+    zIndex: 1
   },
   propertyGroup: {
     backgroundColor: '#fff',
@@ -18,7 +18,9 @@ export default {
     border: '0px solid #d3d3d3',
     marginBottom: 5,
     border: '1px solid #000',
-    borderRadius: 5
+    borderRadius: 5,
+    display:'inline-block',
+    zIndex: 1
   },
   inputHelper: {
     fontSize: 9,
@@ -64,7 +66,7 @@ export default {
     width: 75
   },
   integerInput: {
-    width: 50,
+    width: 60,
     outline: 'none'
   },
   textInput: {

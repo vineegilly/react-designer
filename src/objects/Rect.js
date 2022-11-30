@@ -23,6 +23,8 @@ export default class Rect extends Vector {
     return (
       <rect style={this.getStyle()}
          {...this.getObjectAttributes()}
+         aria-label={`rect-${this.props.index}`}
+         tabIndex={`${100+ this.props.index}`}
          rx={object.radius}
          width={object.width}
          height={object.height} />

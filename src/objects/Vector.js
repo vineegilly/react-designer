@@ -7,9 +7,9 @@ import {SizePanel, TextPanel,
 export default class Vector extends Component {
   static panels = [
     SizePanel,
-    TextPanel,
+    ArrangePanel,
     StylePanel,
-    ArrangePanel
+
   ];
 
   getStyle() {

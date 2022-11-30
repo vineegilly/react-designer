@@ -15,9 +15,9 @@ export default class App extends Component {
   render() {
     return (
       <div className={classes.container}>
-          <div className={classes.preview}>
-            <MondrianExample />
+          <div className={'oc-panel-placeholer'}>
           </div>
+          <MondrianExample />
       </div>
     );
   }

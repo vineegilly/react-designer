@@ -13,27 +13,30 @@ export default class SizePanel extends Panel {
     return (
       <PropertyGroup object={object}>
         <Columns label="Name">
-            <Column label="Object Name" value={object.name || ""} inputStyle={{width: "105px"}}
+            <Column label="Object Name" value={object.name || ""} inputStyle={{width: "100%"}}
                   onChange={this.props.onChange.bind(this, 'name')} />
           </Columns>
         {_.has(object, 'width', 'height') && <Columns label="Size">
           <Column showIf={_.has(object, 'width')}
                   label="width" value={object.width}
+                  type="number"
                   onChange={this.props.onChange.bind(this, 'width')} />
           <Column showIf={_.has(object, 'height')} label="height"
                   value={object.height}
+                  type="number"
                   onChange={this.props.onChange.bind(this, 'height')} />
         </Columns>}
         <Columns label="Position">
           <Column showIf={_.has(object, 'x')}
                   label="top" value={object.x}
+                  type="number"
                   onChange={this.props.onChange.bind(this, 'x')} />
-          <Column showIf={_.has(object, 'y')} label="top" value={object.y}
+          <Column showIf={_.has(object, 'y')} label="top" value={object.y}  type="number"
                   onChange={this.props.onChange.bind(this, 'y')} />
         </Columns>
         {_.has(object, 'rotate') && <Columns label="Rotation">
           <Column label="angle" value={object.rotate}
-                  onChange={this.props.onChange.bind(this, 'rotate')} />
+                  onChange={this.props.onChange.bind(this, 'rotate')}  type="number"/>
         </Columns>}
         <Columns label="Delete">
           <button onClick={this.props.onDelete}>Delete Shape</button>
