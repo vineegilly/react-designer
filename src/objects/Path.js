@@ -48,8 +48,14 @@ export default class Path extends Vector {
     if (rotate) {
       const groupElement = document.getElementsByClassName(this.props.className)[0];
       const bboxGroup = groupElement && groupElement.getBBox();
-      let newX =bboxGroup.x + (bboxGroup.width /2)
-      let newY =bboxGroup.y + (bboxGroup.height /2)
+      let newX = 0 ;
+      let newY = 0 ;
+      if(bboxGroup){
+        newX =bboxGroup.x + (bboxGroup.width /2)
+        newY =bboxGroup.y + (bboxGroup.height /2)
+      }
+      
+     
       return `
       translate(${x - moveX} ${y - moveY})
       rotate(${rotate} ${newX} ${newY})
