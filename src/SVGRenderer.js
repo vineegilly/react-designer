@@ -14,13 +14,21 @@ class SVGRenderer extends Component {
   renderObject(object, index) {
     let {objectRefs, onMouseOver} = this.props;
     let Renderer = this.getObjectComponent(object.type);
+    const onClickHandler = (data) => { 
+      if(this.props && this.props.clickHandler){
+        this.props.clickHandler(data)
+      }
+
+     }
     const onKeyPress = (e) => { 
       if(e.code ==="Space" || e.code==="Enter"){
-        this.props.clickHandler(object)
+        if(this.props && this.props.clickHandler){
+          this.props.clickHandler(object)
+        }
       }
      }
     return (
-      <Renderer onRender={(ref) => objectRefs[index] = ref} onKeyPress={(e)=>onKeyPress(e)} onClick={()=>this.props.clickHandler(object)} className={`${object.type}-${index}`}
+      <Renderer onRender={(ref) => objectRefs[index] = ref} onKeyPress={(e)=>onKeyPress(e)} onClick={()=>onClickHandler(object)} className={`${object.type}-${index}`}
         onMouseOver={onMouseOver.bind(this, index)}
         object={object}  key={index} index={index} />
       );
