@@ -36,6 +36,8 @@ class Designer extends Component {
     },
     currentObjectIndex: null,
     selectedObjectIndex: null,
+    accessName:null,
+    accessId:null,
     selectedTool: null
   };
 
@@ -463,6 +465,24 @@ class Designer extends Component {
     });
   }
 
+  accessibilityCurrent() {
+    let {selectedObjectIndex} = this.state;
+    let {objects} = this.props;
+
+    let rest = objects.filter(
+      (object, index) =>
+        selectedObjectIndex !== index
+    );
+
+    this.setState({
+      accessName:objects.name,
+      accessId:1
+    }, () => {
+      this.objectRefs = {};
+      this.props.onUpdate(rest);
+    });
+  }
+
   moveSelectedObject(attr, points, event, key) {
     let {selectedObjectIndex} = this.state;
     let {objects} = this.props;
@@ -516,6 +536,7 @@ class Designer extends Component {
     let {width, height, canvasWidth, canvasHeight} = this.getCanvas();
 
     let objectComponent, objectWithInitial, ObjectEditor;
+    let accessibilityTagButton = this.props.accessibilityTagButton;
     if (currentObject) {
       objectComponent = this.getObjectComponent(currentObject.type);
       objectWithInitial = {
@@ -539,7 +560,7 @@ class Designer extends Component {
              }}
              onMouseMove={!this.props.isPreview?this.onDrag.bind(this):()=>{}}
              onMouseUp={!this.props.isPreview?this.stopDrag.bind(this):()=>{}}
-             onClick={this.props.isPreview?this.onItemClick.bind(this):()=>{}}
+             onClick={this.props?this.onItemClick.bind(this):()=>{}}
             >
 
              
@@ -584,7 +605,10 @@ class Designer extends Component {
               onArrange={this.handleArrange.bind(this)}
               onChange={this.handleObjectChange.bind(this)}
               onDelete={this.removeCurrent.bind(this)}
-              objectComponent={objectComponent} />
+              onAccess={this.accessibilityCurrent.bind(this)}
+              objectComponent={objectComponent}
+              accessibilityTagButton={accessibilityTagButton}
+               />
           )}
            </div>
       </HotKeys>
