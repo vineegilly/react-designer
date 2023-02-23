@@ -8,13 +8,20 @@ import Columns from './Columns';
 import Column from './Column';
 
 export default class SizePanel extends Panel {
+  
   render() {
     let {object} = this.props;
+    let {accessibilityTagButton} = this.props;
+    
     return (
-      <PropertyGroup object={object}>
+      <PropertyGroup object={object} accessibilityTagButton={accessibilityTagButton}>
         <Columns label="Name">
             <Column label="Object Name" value={object.name || ""} inputStyle={{width: "105px"}}
                   onChange={this.props.onChange.bind(this, 'name')} />
+          </Columns>
+          
+          <Columns label="Accessibility">
+            &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;{accessibilityTagButton}
           </Columns>
         {_.has(object, 'width', 'height') && <Columns label="Size">
           <Column showIf={_.has(object, 'width')}
