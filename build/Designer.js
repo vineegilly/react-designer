@@ -88,6 +88,8 @@ var Designer = function (_Component) {
       },
       currentObjectIndex: null,
       selectedObjectIndex: null,
+      accessName: null,
+      accessId: null,
       selectedTool: null
     }, _this.keyMap = {
       'removeObject': ['del', 'backspace'],
@@ -248,7 +250,6 @@ var Designer = function (_Component) {
           objects = _props2.objects,
           onUpdate = _props2.onUpdate;
 
-
       onUpdate(objects.map(function (object, index) {
         if (index === objectIndex) {
           var newObject = _extends({}, object, changes);
@@ -339,6 +340,17 @@ var Designer = function (_Component) {
       return this.snapCoordinates(coords);
     }
   }, {
+    key: 'onItemClick',
+    value: function onItemClick(event) {
+      var currentObjectIndex = this.state.currentObjectIndex;
+      var objects = this.props.objects;
+
+      var object = objects[currentObjectIndex];
+      if (this.props.onObjectSelect) {
+        this.props.onObjectSelect(object);
+      }
+    }
+  }, {
     key: 'onDrag',
     value: function onDrag(event) {
       var _map;
@@ -416,8 +428,32 @@ var Designer = function (_Component) {
   }, {
     key: 'stopDrag',
     value: function stopDrag() {
-      var mode = this.state.mode;
+      var _state3 = this.state,
+          mode = _state3.mode,
+          currentObjectIndex = _state3.currentObjectIndex;
 
+      // Disables shape drag out of bounds 
+
+      if (mode === _constants.modes.DRAG) {
+        var objects = this.props.objects;
+
+        var object = objects[currentObjectIndex];
+        var offset = this.getOffset();
+        if (object.x < 0) {
+          object.x = 0;
+        };
+        if (object.y < 0) {
+          object.y = 0;
+        };
+        if (object.x + object.width > offset.width) {
+          object.x = offset.width - object.width;
+        }
+        if (object.y + object.height > offset.height) {
+          object.y = offset.height - object.height;
+        }
+        this.updateObject(currentObjectIndex, object);
+        this.updateHandler(currentObjectIndex, object);
+      }
 
       if (_lodash2.default.includes([_constants.modes.DRAG, _constants.modes.ROTATE, _constants.modes.SCALE], mode)) {
         this.setState({
@@ -576,6 +612,27 @@ var Designer = function (_Component) {
       });
     }
   }, {
+    key: 'accessibilityCurrent',
+    value: function accessibilityCurrent() {
+      var _this7 = this;
+
+      var selectedObjectIndex = this.state.selectedObjectIndex;
+      var objects = this.props.objects;
+
+
+      var rest = objects.filter(function (object, index) {
+        return selectedObjectIndex !== index;
+      });
+
+      this.setState({
+        accessName: objects.name,
+        accessId: 1
+      }, function () {
+        _this7.objectRefs = {};
+        _this7.props.onUpdate(rest);
+      });
+    }
+  }, {
     key: 'moveSelectedObject',
     value: function moveSelectedObject(attr, points, event, key) {
       var selectedObjectIndex = this.state.selectedObjectIndex;
@@ -595,7 +652,7 @@ var Designer = function (_Component) {
   }, {
     key: 'getKeymapHandlers',
     value: function getKeymapHandlers() {
-      var _this7 = this;
+      var _this8 = this;
 
       var handlers = {
         removeObject: this.removeCurrent.bind(this),
@@ -604,7 +661,7 @@ var Designer = function (_Component) {
         moveUp: this.moveSelectedObject.bind(this, 'y', -1),
         moveDown: this.moveSelectedObject.bind(this, 'y', 1),
         closePath: function closePath() {
-          return _this7.setState({ mode: _constants.modes.FREE });
+          return _this8.setState({ mode: _constants.modes.FREE });
         }
       };
 
@@ -620,14 +677,14 @@ var Designer = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this8 = this;
+      var _this9 = this;
 
-      var _state3 = this.state,
-          showHandler = _state3.showHandler,
-          handler = _state3.handler,
-          mode = _state3.mode,
-          selectedObjectIndex = _state3.selectedObjectIndex,
-          selectedTool = _state3.selectedTool;
+      var _state4 = this.state,
+          showHandler = _state4.showHandler,
+          handler = _state4.handler,
+          mode = _state4.mode,
+          selectedObjectIndex = _state4.selectedObjectIndex,
+          selectedTool = _state4.selectedTool;
       var _props6 = this.props,
           objects = _props6.objects,
           objectTypes = _props6.objectTypes,
@@ -647,6 +704,7 @@ var Designer = function (_Component) {
       var objectComponent = void 0,
           objectWithInitial = void 0,
           ObjectEditor = void 0;
+      var accessibilityTagButton = this.props.accessibilityTagButton;
       if (currentObject) {
         objectComponent = this.getObjectComponent(currentObject.type);
         objectWithInitial = _extends({}, objectComponent.meta.initial, currentObject);
@@ -666,15 +724,17 @@ var Designer = function (_Component) {
               width: canvasWidth,
               height: canvasHeight
             }),
-            onMouseMove: this.onDrag.bind(this),
-            onMouseUp: this.stopDrag.bind(this) },
+            onMouseMove: !this.props.isPreview ? this.onDrag.bind(this) : function () {},
+            onMouseUp: !this.props.isPreview ? this.stopDrag.bind(this) : function () {},
+            onClick: this.props ? this.onItemClick.bind(this) : function () {}
+          },
           isEditMode && ObjectEditor && _react2.default.createElement(ObjectEditor, { object: currentObject,
             offset: this.getOffset(),
             onUpdate: function onUpdate(object) {
-              return _this8.updateObject(selectedObjectIndex, object);
+              return _this9.updateObject(selectedObjectIndex, object);
             },
             onClose: function onClose() {
-              return _this8.setState({ mode: _constants.modes.FREE });
+              return _this9.setState({ mode: _constants.modes.FREE });
             },
             width: width,
             height: height }),
@@ -684,19 +744,25 @@ var Designer = function (_Component) {
             canRotate: (0, _lodash2.default)(currentObject).has('rotate'),
             onMouseLeave: this.hideHandler.bind(this),
             onDoubleClick: this.showEditor.bind(this),
+            isPreview: this.props.isPreview,
+            onClick: this.startDrag.bind(this, _constants.modes.FREE),
             onDrag: this.startDrag.bind(this, _constants.modes.DRAG),
             onResize: this.startDrag.bind(this, _constants.modes.SCALE),
             onRotate: this.startDrag.bind(this, _constants.modes.ROTATE) }),
-          InsertMenuComponent && _react2.default.createElement(InsertMenuComponent, { tools: objectTypes,
+          !this.props.isPreview && InsertMenuComponent && _react2.default.createElement(InsertMenuComponent, { tools: objectTypes,
             currentTool: selectedTool,
             onSelect: this.selectTool.bind(this) }),
           this.renderSVG(),
-          showPropertyPanel && _react2.default.createElement(_PanelList2.default, {
+          !this.props.isPreview && showPropertyPanel && _react2.default.createElement(_PanelList2.default, {
             offset: this.getOffset(),
             object: objectWithInitial,
             onArrange: this.handleArrange.bind(this),
             onChange: this.handleObjectChange.bind(this),
-            objectComponent: objectComponent })
+            onDelete: this.removeCurrent.bind(this),
+            onAccess: this.accessibilityCurrent.bind(this),
+            objectComponent: objectComponent,
+            accessibilityTagButton: accessibilityTagButton
+          })
         )
       );
     }
@@ -714,6 +780,7 @@ Designer.defaultProps = {
   },
   snapToGrid: 1,
   svgStyle: {},
+  isPreview: false,
   insertMenu: _InsertMenu2.default
 };
 var styles = exports.styles = {

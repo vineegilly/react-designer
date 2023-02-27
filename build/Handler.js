@@ -71,7 +71,8 @@ var Handler = function (_Component) {
     key: 'render',
     value: function render() {
       var props = this.props;
-      var boundingBox = props.boundingBox;
+      var boundingBox = props.boundingBox,
+          isPreview = props.isPreview;
 
 
       var handlerStyle = _extends({}, styles.handler, boundingBox, {
@@ -86,6 +87,7 @@ var Handler = function (_Component) {
           style: handlerStyle,
           onMouseLeave: props.onMouseLeave,
           onDoubleClick: props.onDoubleClick,
+          onClick: props.onClick,
           onMouseDown: this.onMouseDown.bind(this) },
         props.canRotate && _react2.default.createElement(RotateAnchor, { onMouseDown: props.onRotate,
           boundingBox: boundingBox }),

@@ -55,8 +55,8 @@ var Rect = function (_Vector) {
 Rect.meta = {
   icon: _react2.default.createElement(_Icon2.default, { icon: 'rectangle', size: 30 }),
   initial: {
-    width: 5,
-    height: 5,
+    width: 50,
+    height: 50,
     fill: "transparent",
     strokeWidth: 1,
     stroke: "rgba(0,0,0,1)",

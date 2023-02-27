@@ -60,7 +60,8 @@ var PanelList = function (_Component) {
           { style: [_styles2.default.propertyPanel, style] },
           objectComponent.panels.map(function (Panel, i) {
             return _react2.default.createElement(Panel, _extends({ key: i }, _this2.props));
-          })
+          }),
+          _react2.default.createElement('div', { className: 'additionalinfo' })
         )
       );
     }

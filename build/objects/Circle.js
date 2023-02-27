@@ -56,8 +56,8 @@ var Circle = function (_Vector) {
 Circle.meta = {
   icon: _react2.default.createElement(_Icon2.default, { icon: 'circle', size: 30 }),
   initial: {
-    width: 5,
-    height: 5,
+    width: 50,
+    height: 50,
     rotate: 0,
     fill: "transparent",
     strokeWidth: 1,

@@ -51,15 +51,23 @@ var SizePanel = function (_Panel) {
     key: 'render',
     value: function render() {
       var object = this.props.object;
+      var accessibilityTagButton = this.props.accessibilityTagButton;
+
 
       return _react2.default.createElement(
         _PropertyGroup2.default,
-        { object: object },
+        { object: object, accessibilityTagButton: accessibilityTagButton },
         _react2.default.createElement(
           _Columns2.default,
           { label: 'Name' },
           _react2.default.createElement(_Column2.default, { label: 'Object Name', value: object.name || "", inputStyle: { width: "105px" },
             onChange: this.props.onChange.bind(this, 'name') })
+        ),
+        _react2.default.createElement(
+          _Columns2.default,
+          { label: 'Accessibility' },
+          '\xA0 \xA0 \xA0 \xA0\xA0',
+          accessibilityTagButton
         ),
         _lodash2.default.has(object, 'width', 'height') && _react2.default.createElement(
           _Columns2.default,
@@ -85,6 +93,15 @@ var SizePanel = function (_Panel) {
           { label: 'Rotation' },
           _react2.default.createElement(_Column2.default, { label: 'angle', value: object.rotate,
             onChange: this.props.onChange.bind(this, 'rotate') })
+        ),
+        _react2.default.createElement(
+          _Columns2.default,
+          { label: 'Delete' },
+          _react2.default.createElement(
+            'button',
+            { onClick: this.props.onDelete },
+            'Delete Shape'
+          )
         )
       );
     }
