@@ -596,7 +596,7 @@ class Designer extends Component {
 
           {!this.props.isPreview && showPropertyPanel && (
             <PanelList
-              offset={this.getOffset()}
+              canvas={this.getCanvas()}
               object={objectWithInitial}
               onArrange={this.handleArrange.bind(this)}
               onChange={this.handleObjectChange.bind(this)}
