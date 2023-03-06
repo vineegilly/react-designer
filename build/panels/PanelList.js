@@ -16,8 +16,6 @@ var _radium = require('radium');
 
 var _radium2 = _interopRequireDefault(_radium);
 
-var _reactPortal = require('react-portal');
-
 var _styles = require('./styles');
 
 var _styles2 = _interopRequireDefault(_styles);
@@ -45,24 +43,20 @@ var PanelList = function (_Component) {
       var _this2 = this;
 
       var _props = this.props,
-          offset = _props.offset,
+          canvas = _props.canvas,
           objectComponent = _props.objectComponent;
 
       var style = {
-        left: offset.width + offset.x,
-        top: offset.y + window.scrollY
+        left: canvas.width + 30,
+        top: 0
       };
       return _react2.default.createElement(
-        _reactPortal.Portal,
-        { closeOnEsc: true, closeOnOutsideClick: true, isOpened: true },
-        _react2.default.createElement(
-          'div',
-          { style: [_styles2.default.propertyPanel, style] },
-          objectComponent.panels.map(function (Panel, i) {
-            return _react2.default.createElement(Panel, _extends({ key: i }, _this2.props));
-          }),
-          _react2.default.createElement('div', { className: 'additionalinfo' })
-        )
+        'div',
+        { style: [_styles2.default.propertyPanel, style] },
+        objectComponent.panels.map(function (Panel, i) {
+          return _react2.default.createElement(Panel, _extends({ key: i }, _this2.props));
+        }),
+        _react2.default.createElement('div', { className: 'additionalinfo' })
       );
     }
   }]);

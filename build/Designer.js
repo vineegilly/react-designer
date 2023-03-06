@@ -754,7 +754,7 @@ var Designer = function (_Component) {
             onSelect: this.selectTool.bind(this) }),
           this.renderSVG(),
           !this.props.isPreview && showPropertyPanel && _react2.default.createElement(_PanelList2.default, {
-            offset: this.getOffset(),
+            canvas: this.getCanvas(),
             object: objectWithInitial,
             onArrange: this.handleArrange.bind(this),
             onChange: this.handleObjectChange.bind(this),
