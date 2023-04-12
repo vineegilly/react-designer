@@ -297,9 +297,9 @@ var Designer = function (_Component) {
       var handler = _extends({}, this.state.handler, {
         width: object.width || bbox.width,
         height: object.height || bbox.height,
-        top: object.y + canvasOffsetY,
-        left: object.x + canvasOffsetX,
-        rotate: object.rotate
+        top: object.y + canvasOffsetY || 0,
+        left: object.x + canvasOffsetX || 0,
+        rotate: object.rotate || 0
       });
 
       if (!object.width) {
@@ -547,6 +547,9 @@ var Designer = function (_Component) {
       var selectedObjectIndex = this.state.selectedObjectIndex;
 
       this.updateObject(selectedObjectIndex, _defineProperty({}, key, value));
+      var objects = this.props.objects;
+
+      this.updateHandler(selectedObjectIndex, _extends({}, objects[selectedObjectIndex], _defineProperty({}, key, value)));
     }
   }, {
     key: 'handleArrange',

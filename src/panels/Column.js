@@ -12,7 +12,10 @@ const Column = ({showIf=true, ...props}) => {
     <div style={[styles.column, props.style]}>
       {props.children ||
         <input style={[styles.input, styles.integerInput, props.inputStyle]} value={props.value}
-               onChange={(e) => props.onChange(e.target.value)} />
+               onChange={(e) => {
+                const inputValue = ((props.type === "number") && (e.target.value !== '')) ? parseInt(e.target.value) : e.target.value;
+                props.onChange(inputValue);
+               }} />
       }
       {props.label &&
         <div className="helpertext" style={styles.inputHelper}>{props.label}</div>}

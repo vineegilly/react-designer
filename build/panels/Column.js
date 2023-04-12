@@ -34,7 +34,8 @@ var Column = function Column(_ref) {
     { style: [_styles2.default.column, props.style] },
     props.children || _react2.default.createElement('input', { style: [_styles2.default.input, _styles2.default.integerInput, props.inputStyle], value: props.value,
       onChange: function onChange(e) {
-        return props.onChange(e.target.value);
+        var inputValue = props.type === "number" && e.target.value !== '' ? parseInt(e.target.value) : e.target.value;
+        props.onChange(inputValue);
       } }),
     props.label && _react2.default.createElement(
       'div',

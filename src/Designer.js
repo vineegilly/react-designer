@@ -210,9 +210,9 @@ class Designer extends Component {
       ...this.state.handler,
       width: object.width || bbox.width,
       height: object.height || bbox.height,
-      top: object.y + canvasOffsetY,
-      left: object.x + canvasOffsetX,
-      rotate: object.rotate
+      top: object.y + canvasOffsetY || 0,
+      left: object.x + canvasOffsetX || 0,
+      rotate: object.rotate || 0
     };
 
     if (!object.width) {
@@ -414,6 +414,11 @@ class Designer extends Component {
     let {selectedObjectIndex} = this.state;
     this.updateObject(selectedObjectIndex, {
       [key]: value
+    });
+    let {objects} = this.props;
+    this.updateHandler(selectedObjectIndex, {
+      ...objects[selectedObjectIndex],
+      [key]: value,
     });
   }
 

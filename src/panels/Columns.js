@@ -9,7 +9,7 @@ const Columns = ({showIf=true, ...props}) => {
   }
   return (
     <div style={styles.columns}>
-      <div className="formlabel" style={styles.panelTitle}>{props.label}</div>
+      <div className="formlabel" style={styles.panelTitle}>{props.label} {props.isrequired && (<font color="red">*</font>)}</div>
       {props.children}
     </div>
   )

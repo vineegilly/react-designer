@@ -34,7 +34,13 @@ var Columns = function Columns(_ref) {
     _react2.default.createElement(
       'div',
       { className: 'formlabel', style: _styles2.default.panelTitle },
-      props.label
+      props.label,
+      ' ',
+      props.isrequired && _react2.default.createElement(
+        'font',
+        { color: 'red' },
+        '*'
+      )
     ),
     props.children
   );

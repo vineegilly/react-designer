@@ -59,7 +59,7 @@ var SizePanel = function (_Panel) {
         { object: object, accessibilityTagButton: accessibilityTagButton },
         _react2.default.createElement(
           _Columns2.default,
-          { label: 'Name' },
+          { isrequired: true, label: 'Name' },
           _react2.default.createElement(_Column2.default, { label: 'Object Name', value: object.name || "", inputStyle: { width: "105px" },
             onChange: this.props.onChange.bind(this, 'name') })
         ),
@@ -74,25 +74,25 @@ var SizePanel = function (_Panel) {
           { label: 'Size' },
           _react2.default.createElement(_Column2.default, { showIf: _lodash2.default.has(object, 'width'),
             label: 'width', value: object.width,
-            onChange: this.props.onChange.bind(this, 'width') }),
+            onChange: this.props.onChange.bind(this, 'width'), type: 'number' }),
           _react2.default.createElement(_Column2.default, { showIf: _lodash2.default.has(object, 'height'), label: 'height',
             value: object.height,
-            onChange: this.props.onChange.bind(this, 'height') })
+            onChange: this.props.onChange.bind(this, 'height'), type: 'number' })
         ),
         _react2.default.createElement(
           _Columns2.default,
           { label: 'Position' },
           _react2.default.createElement(_Column2.default, { showIf: _lodash2.default.has(object, 'x'),
             label: 'top', value: object.x,
-            onChange: this.props.onChange.bind(this, 'x') }),
+            onChange: this.props.onChange.bind(this, 'x'), type: 'number' }),
           _react2.default.createElement(_Column2.default, { showIf: _lodash2.default.has(object, 'y'), label: 'top', value: object.y,
-            onChange: this.props.onChange.bind(this, 'y') })
+            onChange: this.props.onChange.bind(this, 'y'), type: 'number' })
         ),
         _lodash2.default.has(object, 'rotate') && _react2.default.createElement(
           _Columns2.default,
           { label: 'Rotation' },
           _react2.default.createElement(_Column2.default, { label: 'angle', value: object.rotate,
-            onChange: this.props.onChange.bind(this, 'rotate') })
+            onChange: this.props.onChange.bind(this, 'rotate'), type: 'number' })
         ),
         _react2.default.createElement(
           _Columns2.default,

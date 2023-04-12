@@ -14,7 +14,7 @@ export default class SizePanel extends Panel {
 
     return (
       <PropertyGroup object={object} accessibilityTagButton={accessibilityTagButton}>
-        <Columns label="Name">
+        <Columns isrequired={true} label="Name">
             <Column label="Object Name" value={object.name || ""} inputStyle={{width: "105px"}}
                   onChange={this.props.onChange.bind(this, 'name')} />
           </Columns>
@@ -24,21 +24,21 @@ export default class SizePanel extends Panel {
         {_.has(object, 'width', 'height') && <Columns label="Size">
           <Column showIf={_.has(object, 'width')}
                   label="width" value={object.width}
-                  onChange={this.props.onChange.bind(this, 'width')} />
+                  onChange={this.props.onChange.bind(this, 'width')} type="number" />
           <Column showIf={_.has(object, 'height')} label="height"
                   value={object.height}
-                  onChange={this.props.onChange.bind(this, 'height')} />
+                  onChange={this.props.onChange.bind(this, 'height')} type="number" />
         </Columns>}
         <Columns label="Position">
           <Column showIf={_.has(object, 'x')}
                   label="top" value={object.x}
-                  onChange={this.props.onChange.bind(this, 'x')} />
+                  onChange={this.props.onChange.bind(this, 'x')} type="number" />
           <Column showIf={_.has(object, 'y')} label="top" value={object.y}
-                  onChange={this.props.onChange.bind(this, 'y')} />
+                  onChange={this.props.onChange.bind(this, 'y')} type="number" />
         </Columns>
         {_.has(object, 'rotate') && <Columns label="Rotation">
           <Column label="angle" value={object.rotate}
-                  onChange={this.props.onChange.bind(this, 'rotate')} />
+                  onChange={this.props.onChange.bind(this, 'rotate')} type="number" />
         </Columns>}
         <Columns label="Delete">
           <button onClick={this.props.onDelete}>Delete Shape</button>

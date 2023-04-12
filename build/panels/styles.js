@@ -11,7 +11,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 exports.default = {
   propertyPanel: {
     position: "absolute",
-    width: 225,
+    width: 250,
     top: 0,
     left: 0,
     padding: '0 5px 6px 5px',

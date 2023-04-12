@@ -49,8 +49,8 @@ class Handler extends Component {
     let handlerStyle = {
       ...styles.handler,
       ...boundingBox,
-      left: boundingBox.left - 2,
-      top: boundingBox.top - 2,
+      left: boundingBox.left + 24,
+      top: boundingBox.top + 2,
       transform: `rotate(${boundingBox.rotate}deg)`
     };
 
