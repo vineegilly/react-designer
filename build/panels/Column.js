@@ -29,13 +29,26 @@ var Column = function Column(_ref) {
     return _react2.default.createElement('div', { style: _styles2.default.empty });
   }
 
+  var handleOnchange = function handleOnchange(val) {
+    var result = val;
+    if (val !== '') {
+      if (props.type === "number") {
+        if (isNaN(val) === false) {
+          result = parseInt(val);
+        } else {
+          result = 0;
+        }
+      }
+    }
+    props.onChange(result);
+  };
+
   return _react2.default.createElement(
     'div',
     { style: [_styles2.default.column, props.style] },
     props.children || _react2.default.createElement('input', { style: [_styles2.default.input, _styles2.default.integerInput, props.inputStyle], value: props.value,
       onChange: function onChange(e) {
-        var inputValue = props.type === "number" && e.target.value !== '' ? parseInt(e.target.value) : e.target.value;
-        props.onChange(inputValue);
+        return handleOnchange(e.target.value);
       } }),
     props.label && _react2.default.createElement(
       'div',
