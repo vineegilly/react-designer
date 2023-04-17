@@ -29,14 +29,19 @@ var Column = function Column(_ref) {
     return _react2.default.createElement('div', { style: _styles2.default.empty });
   }
 
-  var handleOnchange = function handleOnchange(val) {
-    var result = val;
-    if (val !== '') {
+  var handleOnchange = function handleOnchange(e) {
+    var result = e.target.value;
+    if (e.target.value !== '') {
       if (props.type === "number") {
-        if (isNaN(val) === false) {
-          result = parseInt(val);
+        if (isNaN(e.target.value) === false) {
+          result = parseInt(e.target.value);
+          if ((props.label === 'width' || props.label === 'height') && result < 5) {
+            result = 5;
+          }
+        } else if (props.label === 'width' || props.label === 'height') {
+          result = 5;
         } else {
-          result = 0;
+          result = 1;
         }
       }
     }
@@ -48,7 +53,7 @@ var Column = function Column(_ref) {
     { style: [_styles2.default.column, props.style] },
     props.children || _react2.default.createElement('input', { style: [_styles2.default.input, _styles2.default.integerInput, props.inputStyle], value: props.value,
       onChange: function onChange(e) {
-        return handleOnchange(e.target.value);
+        return handleOnchange(e);
       } }),
     props.label && _react2.default.createElement(
       'div',

@@ -8,14 +8,19 @@ const Column = ({showIf=true, ...props}) => {
     return <div style={styles.empty} />;
   }
 
-  const handleOnchange = (val) => {
-    let result = val;
-    if(val !== '') {
+  const handleOnchange = (e) => {
+    let result = e.target.value;
+    if(e.target.value !== '') {
       if (props.type === "number") {
-        if (isNaN(val) === false) {
-          result = parseInt(val);
-        } else {
-          result = 0;
+        if (isNaN(e.target.value) === false) {
+          result = parseInt(e.target.value);
+          if((props.label === 'width' || props.label === 'height') && result < 5 ){
+            result = 5;
+          }
+        } else if(props.label === 'width' || props.label === 'height'){
+          result = 5;
+        }else{
+          result = 1;
         }
       }
     }
@@ -26,7 +31,7 @@ const Column = ({showIf=true, ...props}) => {
     <div style={[styles.column, props.style]}>
       {props.children ||
         <input style={[styles.input, styles.integerInput, props.inputStyle]} value={props.value}
-               onChange={(e) => handleOnchange(e.target.value)} />
+               onChange={(e) => handleOnchange(e)} />
       }
       {props.label &&
         <div className="helpertext" style={styles.inputHelper}>{props.label}</div>}

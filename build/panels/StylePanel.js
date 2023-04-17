@@ -97,7 +97,7 @@ var StylePanel = function (_Panel) {
             { label: 'width' },
             _react2.default.createElement('input', { style: [[_styles2.default.input, _styles2.default.integerInput], { width: 30 }],
               onChange: function onChange(e) {
-                return _this2.props.onChange('strokeWidth', parseInt(e.target.value) || 0);
+                return _this2.props.onChange('strokeWidth', parseInt(e.target.value) || 1);
               },
               value: object.strokeWidth })
           ),
@@ -106,7 +106,7 @@ var StylePanel = function (_Panel) {
             { showIf: _lodash2.default.has(object, 'radius'), label: 'radius' },
             _react2.default.createElement('input', { style: [_styles2.default.input, _styles2.default.integerInput, { width: 30 }],
               onChange: function onChange(e) {
-                return _this2.props.onChange('radius', parseInt(e.target.value) || 0);
+                return _this2.props.onChange('radius', parseInt(e.target.value) || 1);
               },
               value: object.radius })
           )
