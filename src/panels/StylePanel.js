@@ -46,12 +46,12 @@ export default class StylePanel extends Panel {
             </Column>
             <Column label="width">
               <input style={[[styles.input, styles.integerInput], {width: 30}]}
-                     onChange={(e) => this.props.onChange('strokeWidth', parseInt(e.target.value) || "")}
+                     onChange={(e) => this.props.onChange('strokeWidth', parseInt(e.target.value) || 0)}
                      value={object.strokeWidth} />
             </Column>
             <Column showIf={_.has(object, 'radius')} label="radius">
               <input style={[styles.input, styles.integerInput, {width: 30}]}
-                     onChange={(e) => this.props.onChange('radius', parseInt(e.target.value) || "")}
+                     onChange={(e) => this.props.onChange('radius', parseInt(e.target.value) || 0)}
                      value={object.radius} />
             </Column>
           </Columns>
