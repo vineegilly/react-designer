@@ -74,7 +74,6 @@ var SVGRenderer = function (_Component) {
       var style = [styles.canvas, background ? {
         backgroundColor: background
       } : getBackgroundImage(this.props.backgroundImage), _extends({}, svgStyle, {
-        border: '1px solid black',
         marginTop: canvasOffsetY,
         marginLeft: canvasOffsetX
       })];
