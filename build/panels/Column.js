@@ -31,11 +31,11 @@ var Column = function Column(_ref) {
 
   var handleOnchange = function handleOnchange(e) {
     var result = e.target.value;
-    if (e.target.value !== '') {
+    if (isNaN(e.target.value) === true) {
       if (props.type === "number") {
         if (isNaN(e.target.value) === false) {
-          result = parseInt(e.target.value);
-          if ((props.label === 'width' || props.label === 'height') && result < 5) {
+          result = parseInt(result);
+          if ((props.label === 'width' || props.label === 'height') && (result < 5 || result === '')) {
             result = 5;
           }
         } else if (props.label === 'width' || props.label === 'height') {
@@ -44,6 +44,8 @@ var Column = function Column(_ref) {
           result = 1;
         }
       }
+    } else {
+      result = 5;
     }
     props.onChange(result);
   };
