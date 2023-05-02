@@ -1,4 +1,4 @@
-React-designer
+react-designer
 ==============
 
 Easy to configure, lightweight, editable vector graphics in your react components.
