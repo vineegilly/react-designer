@@ -30,8 +30,8 @@ var Column = function Column(_ref) {
   }
 
   var handleOnchange = function handleOnchange(e) {
-    var result = e.target.value;
-    if (isNaN(e.target.value) === true) {
+    var result = e.target.value ? e.target.value : 5;
+    if (result !== ' ') {
       if (props.type === "number") {
         if (isNaN(e.target.value) === false) {
           result = parseInt(result);

@@ -9,8 +9,8 @@ const Column = ({showIf=true, ...props}) => {
   }
 
   const handleOnchange = (e) => {
-    let result = e.target.value;
-    if (isNaN(e.target.value) === true) {
+    let result = e.target.value ? e.target.value : 5;
+    if (result !== ' ') {
       if (props.type === "number") {
         if (isNaN(e.target.value) === false) {
           result = parseInt(result);
