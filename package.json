@@ -1,6 +1,6 @@
 {
   "name": "react-object-canvas",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "Easy to configure, lightweight, editable vector graphics in your react components.",
   "main": "./build/index.js",
   "scripts": {
